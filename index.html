@@ -1,0 +1,1347 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>万晨 WAN CHEN — 电子商务运营 / 页面设计</title>
+<meta name="description" content="万晨的个人主页：成都新华高级技工学校电子商务运营专业在读，做店铺运营、内容文案与页面视觉，另附胶片摄影与日常记录。" />
+<meta name="theme-color" content="#faf9fa" />
+
+<!-- —— 门面：favicon 与分享卡片（发到微信/QQ 时才有缩略图和简介） —— -->
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+<link rel="icon" href="assets/favicon.ico" sizes="16x16 24x24 32x32 48x48" />
+<link rel="icon" href="assets/favicon-16.png" sizes="16x16" type="image/png" />
+<link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png" />
+<link rel="icon" href="assets/favicon-48.png" sizes="48x48" type="image/png" />
+<link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+<link rel="manifest" href="assets/site.webmanifest" />
+<link rel="canonical" href="https://wanchen-portfolio-2026-33916.app.workbuddy.host/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="万晨 WAN CHEN" />
+<meta property="og:locale" content="zh_CN" />
+<meta property="og:title" content="万晨 WAN CHEN — 电子商务运营 / 页面设计" />
+<meta property="og:description" content="成都新华高级技工学校电子商务运营专业在读。从选品定位、商品文案到详情页与落地页，一整条链路自己跑通；也写页面、拍胶片。" />
+<meta property="og:image" content="https://wanchen-portfolio-2026-33916.app.workbuddy.host/assets/og-image.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:url" content="https://wanchen-portfolio-2026-33916.app.workbuddy.host/" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="万晨 WAN CHEN — 电子商务运营 / 页面设计" />
+<meta name="twitter:description" content="成都新华高级技工学校电子商务运营专业在读。从选品定位、商品文案到详情页与落地页，一整条链路自己跑通。" />
+<meta name="twitter:image" content="https://wanchen-portfolio-2026-33916.app.workbuddy.host/assets/og-image.png" />
+
+<!-- —— 首屏关键资源提前加载 —— -->
+<link rel="preload" as="image" href="assets/img/avatar.jpg" fetchpriority="high" />
+<link rel="preload" as="image" href="assets/bg/wallpaper.jpg" />
+<style>
+/* ==================================================================
+   设计令牌 —— 取自背景壁纸「初音-AniLuoty」真实取色（K-means）
+   淡粉 #D9AEBE 37% · 初音青 #3AD8C7 19% · 灰紫 #7F8094 16%
+   深紫 #402B53 8% · 品红 #CD24CE 5.5% · 绿 #5FD14F 5%
+   壁纸为亮调（暗部仅 4.6%），故站点走「淡粉纸底 + 青紫强调」
+   ================================================================== */
+:root{
+  --paper:#faf9fa;          /* 近白纸底：中性，把色彩让给背景壁纸 */
+  --surface:#ffffff;        /* 面板白 */
+  --ink:#2b1a3e;            /* 墨：深紫（取自 #402B53 加深） */
+  --ink-2:#54436b;          /* 次级正文 */
+  --mute:#7a6488;           /* 辅助文字（对比度 4.68:1，过 AA） */
+  --line:#e9e5e8;           /* 分隔线（中性灰，不带粉） */
+  --line-soft:#f2eff1;
+  --hair:#dad5d8;
+
+  --teal:#14a698;           /* 唯一主强调：初音青（品红只作极小点缀） */
+  --teal-lt:#4ecfc4;
+  --teal-ink:#0a6660;       /* 青色文字版（对比度 5.8:1） */
+  --magenta:#c53b93;        /* 次强调：品红（装饰） */
+  --magenta-ink:#a8177a;    /* 品红文字版 */
+  --pink:#e29ab6;
+
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei",Helvetica,Arial,sans-serif;
+  --serif:Georgia,"Times New Roman","Songti SC",SimSun,serif;
+  --mono:"SFMono-Regular","SF Mono",Consolas,"Liberation Mono",Menlo,monospace;
+
+  --ease:cubic-bezier(.22,.61,.36,1);
+  --r:5px;
+
+  --s1:.25rem; --s2:.5rem; --s3:.75rem; --s4:1rem;
+  --s6:1.5rem; --s8:2rem; --s10:2.5rem; --s12:3rem;
+  --s16:4rem; --s20:5rem; --s24:6rem;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:var(--paper)}
+body{
+  background:transparent;color:var(--ink);
+  font-family:var(--sans);font-size:16px;line-height:1.8;letter-spacing:.012em;
+  -webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;
+}
+/* 图片默认去色，hover 还原 —— 与背景壁纸的彩色形成呼应 */
+img{display:block;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.04);transition:filter .6s var(--ease),transform 1.1s var(--ease)}
+a{color:inherit;text-decoration:none}
+::selection{background:var(--teal);color:#fff}
+:focus-visible{outline:1px solid var(--teal);outline-offset:3px}
+::placeholder{color:#bda9c6}
+
+/* ======== 全站背景视频：Wallpaper Engine 当前壁纸「初音-AniLuoty」 ======== */
+/* 想改成黑白：把下面这行 filter 换成 filter:grayscale(1) contrast(1.04) */
+.bg-video{position:fixed;inset:0;z-index:-1;overflow:hidden;pointer-events:none;
+  filter:saturate(1.04) contrast(1.02);background:#0b0d12}
+.bg-video video{width:100%;height:100%;object-fit:cover;display:block;
+  animation:bgDrift 26s ease-in-out infinite alternate}
+@keyframes bgDrift{from{transform:scale(1.02)}to{transform:scale(1.09)}}
+/* 视频没起来时的兜底：封面缓慢平移缩放 + 光晕流动，肉眼能看出在动，而不是死图 */
+.bg-video.still video{display:none}
+.bg-video.still{background:url(assets/bg/wallpaper.jpg) center/cover no-repeat;
+  animation:bgStill 24s ease-in-out infinite alternate}
+@keyframes bgStill{
+  0%{background-position:44% 42%;transform:scale(1.035)}
+  50%{background-position:56% 58%;transform:scale(1.075)}
+  100%{background-position:48% 50%;transform:scale(1.045)}}
+.bg-video.still::after{content:'';position:absolute;inset:-22%;pointer-events:none;
+  background:radial-gradient(40% 32% at 30% 26%,rgba(78,207,196,.30),transparent 62%),
+             radial-gradient(36% 28% at 74% 70%,rgba(196,120,214,.22),transparent 64%);
+  animation:bgGlow 17s ease-in-out infinite alternate}
+@keyframes bgGlow{
+  0%{transform:translate3d(-4%,-3%,0) scale(1);opacity:.5}
+  50%{transform:translate3d(5%,4%,0) scale(1.14);opacity:.92}
+  100%{transform:translate3d(-2%,3%,0) scale(1.06);opacity:.6}}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(20px,4.5vw,48px)}
+section{padding:clamp(72px,8.5vw,120px) 0;scroll-margin-top:72px}
+
+/* 顶部阅读进度：青 → 品红 */
+#bar{position:fixed;top:0;left:0;height:2px;width:0;z-index:120;
+  background:linear-gradient(90deg,var(--teal),var(--magenta))}
+
+/* ================= 导航 ================= */
+header{
+  position:fixed;top:0;left:0;right:0;z-index:110;
+  background:transparent;border-bottom:1px solid transparent;
+  transition:background .5s var(--ease),border-color .5s var(--ease);
+}
+header.solid{
+  background:rgba(250,249,250,.82);
+  backdrop-filter:blur(14px) saturate(1.25);
+  -webkit-backdrop-filter:blur(14px) saturate(1.25);
+  border-bottom-color:var(--line-soft);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px}
+.brand{display:flex;align-items:center;gap:12px}
+.brand img{width:30px;height:30px;border-radius:50%;border:1px solid var(--hair);filter:none}
+.brand > span{display:flex;flex-direction:column;line-height:1.3}
+.brand > span > span{font-size:15px;font-weight:600;letter-spacing:.05em}
+.brand em{font-style:normal;font:400 9.5px/1 var(--mono);letter-spacing:.22em;color:var(--teal-ink);margin-top:4px}
+
+.nav ul{display:flex;gap:34px;list-style:none;font-size:13.5px;letter-spacing:.03em}
+.nav ul a{color:var(--ink-2);position:relative;padding:5px 0;transition:color .3s var(--ease)}
+.nav ul a::after{
+  content:"";position:absolute;left:0;right:0;bottom:0;height:1px;
+  background:linear-gradient(90deg,var(--teal),var(--magenta));
+  transform:scaleX(0);transform-origin:left;transition:transform .45s var(--ease);
+}
+.nav ul a:hover{color:var(--ink)}
+.nav ul a:hover::after,.nav ul a.on::after{transform:scaleX(1)}
+.nav ul a.on{color:var(--ink)}
+
+/* 侧边导航：细横线刻度 */
+.dots{position:fixed;right:28px;top:50%;transform:translateY(-50%);z-index:100;
+  display:flex;flex-direction:column;align-items:flex-end;gap:12px}
+.dots a{width:18px;height:1px;background:var(--hair);transition:.4s var(--ease);position:relative}
+.dots a.on{width:34px;background:var(--teal)}
+.dots a span{position:absolute;right:28px;top:50%;transform:translateY(-50%);
+  font:400 10px/1 var(--mono);letter-spacing:.16em;color:var(--teal-ink);
+  opacity:0;transition:opacity .3s;white-space:nowrap}
+.dots a:hover span{opacity:1}
+
+/* ================= 首屏 ================= */
+#home{padding-top:0;min-height:100svh;display:flex;align-items:center;position:relative;
+  background:linear-gradient(100deg,rgba(250,249,250,.95) 0%,rgba(250,249,250,.84) 42%,rgba(250,249,250,.3) 100%)}
+.home-grid{
+  display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);
+  gap:clamp(36px,5.5vw,80px);align-items:center;width:100%;padding-top:104px;padding-bottom:76px;
+}
+.kicker{font:400 11px/1 var(--mono);letter-spacing:.2em;text-transform:uppercase;
+  color:var(--teal-ink);margin-bottom:26px;display:flex;align-items:center;gap:14px}
+.kicker i{width:40px;height:1px;background:var(--teal)}
+
+h1{font-size:clamp(42px,6.2vw,84px);line-height:1.04;letter-spacing:-.015em;font-weight:600}
+h1 .nm{display:block;position:relative}
+/* 姓名故障重影：呼应壁纸的 glitch 质感，只在偶发瞬间抖动 */
+.glitch::before,.glitch::after{
+  content:attr(data-text);position:absolute;left:0;top:0;width:100%;
+  pointer-events:none;opacity:0;
+}
+.glitch::before{color:var(--teal);transform:translate(-2px,0);clip-path:inset(0 0 52% 0);
+  animation:gl1 6s infinite steps(1)}
+.glitch::after{color:var(--magenta);transform:translate(2px,0);clip-path:inset(52% 0 0 0);
+  animation:gl2 7.5s infinite steps(1)}
+@keyframes gl1{0%,93%,100%{transform:translate(0,0);opacity:0}94%{transform:translate(-5px,-2px);opacity:.85}96%{transform:translate(3px,1px);opacity:.55}98%{transform:translate(-2px,0);opacity:.28}}
+@keyframes gl2{0%,91%,100%{transform:translate(0,0);opacity:0}92%{transform:translate(5px,2px);opacity:.8}94%{transform:translate(-3px,-1px);opacity:.5}97%{transform:translate(2px,0);opacity:.25}}
+
+h1 .sub{
+  display:block;margin-top:22px;font:400 12px/1.6 var(--mono);
+  letter-spacing:.2em;text-transform:uppercase;color:var(--teal-ink);
+}
+.lede{margin-top:26px;font-size:15.5px;line-height:1.9;color:var(--ink-2);max-width:46ch}
+.lede b{color:var(--ink);font-weight:600}
+
+#tagRow{display:flex;flex-wrap:wrap;gap:8px;margin-top:28px}
+#tagRow span{
+  font-size:12.5px;letter-spacing:.05em;padding:6px 12px;
+  border:1px solid var(--line);color:var(--ink-2);background:rgba(255,255,255,.5);
+  transition:border-color .3s var(--ease),color .3s var(--ease),background .3s var(--ease);
+}
+#tagRow span:hover{border-color:var(--teal);color:var(--teal-ink);background:rgba(36,185,171,.08)}
+
+.btns{display:flex;flex-wrap:wrap;gap:12px;margin-top:38px}
+.btn{
+  display:inline-flex;align-items:center;gap:10px;padding:13px 26px;
+  font-size:13.5px;letter-spacing:.05em;border:1px solid var(--teal);
+  background:transparent;color:var(--teal-ink);cursor:pointer;
+  transition:background .4s var(--ease),color .4s var(--ease),border-color .4s var(--ease);
+}
+.btn-fill{background:linear-gradient(100deg,#0a6660,#0d8073);color:#fff;border-color:transparent}
+.btn-fill:hover{background:transparent;color:var(--teal-ink);border-color:var(--teal)}
+.btn-line{border-color:var(--hair);color:var(--ink-2)}
+.btn-line:hover{border-color:var(--teal);color:var(--teal-ink);background:rgba(36,185,171,.07)}
+.btn .ar{display:inline-block;transition:transform .4s var(--ease)}
+.btn:hover .ar{transform:translateX(4px)}
+
+.portrait{position:relative;min-width:0;max-width:100%}
+.portrait .pic{
+  position:relative;width:100%;aspect-ratio:1/1;background:var(--line-soft);overflow:hidden;
+  border-radius:50%;
+  border:1px solid var(--line);
+  box-shadow:0 20px 44px -30px rgba(43,26,62,.45);
+  transition:border-color .45s var(--ease),box-shadow .45s var(--ease);
+}
+.portrait .pic::after{
+  content:"";position:absolute;inset:0;pointer-events:none;border-radius:50%;
+  background:radial-gradient(circle at 50% 40%,transparent 55%,rgba(43,26,62,.18) 100%);
+}
+.portrait:hover .pic{border-color:var(--teal);box-shadow:0 22px 48px -26px rgba(20,166,152,.34)}
+.portrait img{display:block;width:100%;height:100%;object-fit:cover;
+  filter:grayscale(1) contrast(1.03);
+  transition:transform 1.6s var(--ease),filter .8s var(--ease)}
+.portrait:hover img{transform:scale(1.03);filter:grayscale(0) contrast(1.02)}
+.badge{
+  display:block;margin-top:28px;font:400 10px/1 var(--mono);
+  letter-spacing:.2em;text-transform:uppercase;color:var(--teal-ink);
+}
+
+.scroll-cue{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:12px;
+  font:400 10px/1 var(--mono);letter-spacing:.24em;color:var(--teal-ink);
+}
+.scroll-cue i{width:46px;height:1px;background:linear-gradient(90deg,var(--teal),transparent)}
+
+/* ================= 区块标题 ================= */
+.sec-head{
+  display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.82fr);
+  gap:clamp(20px,4vw,56px);align-items:end;
+  padding-bottom:26px;border-bottom:1px solid var(--line);
+  margin-bottom:clamp(40px,5vw,60px);
+}
+.sec-head .idx{display:block;font:400 10.5px/1 var(--mono);letter-spacing:.22em;color:var(--teal-ink);margin-bottom:16px}
+.sec-head h2{font-size:clamp(26px,3.2vw,40px);letter-spacing:-.01em;font-weight:600;line-height:1.22}
+.sec-head p{color:var(--ink-2);font-size:14.5px;line-height:1.85;max-width:44ch;padding-bottom:4px}
+.sec-head .more{grid-column:2;justify-self:start;margin-top:16px;display:inline-flex;align-items:center;gap:8px;
+  font:400 11px/1 var(--mono);letter-spacing:.18em;color:var(--teal-ink);
+  border-bottom:1px solid var(--line);padding-bottom:7px;transition:border-color .35s var(--ease)}
+.sec-head .more:hover{border-color:var(--teal)}
+.sec-head .more .ar{transition:transform .35s var(--ease)}
+.sec-head .more:hover .ar{transform:translateX(4px)}
+.entry-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(14px,1.6vw,20px)}
+.entry{display:flex;flex-direction:column;padding:clamp(24px,3vw,34px);
+  border:1px solid var(--line);border-radius:var(--r);background:rgba(255,255,255,.62);
+  backdrop-filter:blur(6px);
+  transition:border-color .4s var(--ease),transform .4s var(--ease),background .4s var(--ease)}
+.entry:hover{border-color:var(--teal);transform:translateY(-3px);background:rgba(255,255,255,.8)}
+.entry-num{font:400 10.5px/1 var(--mono);letter-spacing:.22em;color:var(--teal-ink);margin-bottom:18px}
+.entry-title{font-size:clamp(19px,2.1vw,24px);font-weight:600;letter-spacing:-.005em}
+.entry-meta{margin:10px 0 26px;font:400 10.5px/1.6 var(--mono);letter-spacing:.14em;color:var(--mute)}
+.entry-go{margin-top:auto;font-size:13px;color:var(--teal-ink);display:inline-flex;align-items:center;gap:8px}
+.entry-go .ar{transition:transform .35s var(--ease)}
+.entry:hover .entry-go .ar{transform:translateX(4px)}
+
+/* ================= 关于我 ================= */
+#about{background:rgba(255,255,255,.9);border-top:1px solid var(--line-soft);border-bottom:1px solid var(--line-soft)}
+#works{background:rgba(250,249,250,.88)}
+#contact{background:rgba(250,249,250,.9)}
+
+.about-grid{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:clamp(40px,5vw,80px);align-items:start}
+/* ← 改这里：个人简介 */
+.bio{font-size:clamp(15.5px,1.2vw,17px);line-height:1.95;color:var(--ink-2)}
+.bio p + p{margin-top:1.5em}
+.motto{margin-top:44px;padding-left:26px;border-left:2px solid var(--teal)}
+.motto q{display:block;font-family:var(--serif);quotes:none;font-size:clamp(19px,2vw,26px);line-height:1.65;color:var(--ink)}
+.motto small{display:block;margin-top:14px;font:400 10px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;color:var(--teal-ink)}
+
+/* 毛玻璃面板 */
+.panel{
+  background:rgba(255,255,255,.68);border:1px solid rgba(255,255,255,.9);
+  backdrop-filter:blur(12px) saturate(1.1);-webkit-backdrop-filter:blur(12px) saturate(1.1);
+  border-radius:var(--r);padding:24px 24px 20px;
+  box-shadow:0 10px 34px -24px rgba(43,26,62,.35);
+}
+.panel h3{
+  font:400 10.5px/1 var(--mono);letter-spacing:.22em;text-transform:uppercase;
+  color:var(--teal-ink);padding-bottom:14px;margin-bottom:6px;
+}
+/* ← 改这里：性格 */
+.trait{display:grid;grid-template-columns:78px minmax(0,1fr);gap:18px;align-items:baseline;
+  padding:14px 0;border-bottom:1px solid var(--line-soft)}
+.trait:last-of-type{border-bottom:0}
+.trait b{font-size:14.5px;font-weight:600;letter-spacing:.03em}
+.trait span{font-size:13.5px;color:var(--mute);line-height:1.75}
+#interestTags{display:flex;flex-wrap:wrap;gap:8px;margin-top:16px}
+#interestTags span{
+  font-size:12.5px;letter-spacing:.05em;padding:6px 12px;
+  background:rgba(255,255,255,.75);border:1px solid var(--line);color:var(--ink-2);
+  transition:background .3s var(--ease),color .3s var(--ease),border-color .3s var(--ease);
+}
+#interestTags span:hover{background:var(--teal);border-color:var(--teal);color:#fff}
+.panel + .panel{margin-top:28px}
+
+/* ================= 作品 / 爱好 ================= */
+
+/* ================= 照片墙 ================= */
+
+/* 灯箱 */
+
+/* ================= 联系方式 ================= */
+.contact-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,.95fr);gap:clamp(36px,5vw,80px);align-items:start}
+.mailto-big{
+  font-size:clamp(19px,2.3vw,30px);font-weight:500;letter-spacing:-.01em;
+  border-bottom:1px solid var(--teal);padding-bottom:5px;display:inline-block;
+  transition:color .35s,opacity .35s;
+}
+.mailto-big:hover{color:var(--teal-ink);opacity:.75}
+#socialList{list-style:none;margin-top:40px;border-top:1px solid var(--line)}
+#socialList li{border-bottom:1px solid var(--line)}
+#socialList a{display:flex;align-items:center;justify-content:space-between;
+  padding:16px 2px;font-size:14.5px;color:var(--ink-2);transition:color .3s var(--ease)}
+#socialList a:hover{color:var(--ink)}
+#socialList a em{font-style:normal;font:400 10px/1 var(--mono);letter-spacing:.16em;
+  color:var(--teal-ink);transition:transform .4s var(--ease)}
+#socialList a:hover em{transform:translateX(5px)}
+
+form h3{font-size:20px;font-weight:600;letter-spacing:-.005em}
+form .hint{font-size:13.5px;color:var(--mute);margin:6px 0 30px;line-height:1.75}
+.field{margin-bottom:22px}
+.field label{display:block;font-size:12.5px;letter-spacing:.08em;color:var(--mute);margin-bottom:8px}
+.field input,.field textarea{
+  width:100%;border:0;border-bottom:1px solid var(--line);background:transparent;border-radius:0;
+  padding:10px 0;font-family:inherit;font-size:15px;color:var(--ink);outline:none;
+  transition:border-color .3s var(--ease);
+}
+.field textarea{resize:vertical;min-height:96px;line-height:1.85}
+.field input:focus,.field textarea:focus{border-bottom-color:var(--teal)}
+form button{
+  width:100%;margin-top:12px;padding:14px;border:1px solid transparent;
+  background:linear-gradient(100deg,#0a6660,#0d8073);color:#fff;
+  font-size:14px;letter-spacing:.08em;font-family:inherit;cursor:pointer;
+  transition:background .4s var(--ease),color .4s var(--ease),border-color .4s var(--ease);
+}
+form button:hover{background:transparent;color:var(--teal-ink);border-color:var(--teal)}
+#formTip{font-size:12.5px;color:var(--mute);margin-top:14px;min-height:18px;letter-spacing:.03em}
+
+/* 页脚 */
+footer{padding:36px 0 34px;border-top:1px solid var(--line);margin-top:clamp(64px,7vw,96px)}
+.foot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;
+  font:400 10.5px/1.8 var(--mono);letter-spacing:.14em;color:var(--mute)}
+
+/* 进场动画 */
+.rv{opacity:0;transform:translateY(16px);transition:opacity .85s var(--ease),transform .85s var(--ease)}
+.rv.in{opacity:1;transform:none}
+
+/* 回到顶部 / 轻提示 */
+.totop{
+  position:fixed;right:24px;bottom:24px;width:42px;height:42px;border-radius:var(--r);
+  border:1px solid var(--line);background:rgba(255,255,255,.92);color:var(--ink);font-size:15px;
+  cursor:pointer;z-index:105;opacity:0;visibility:hidden;transform:translateY(8px);
+  transition:.4s var(--ease);
+}
+.totop.show{opacity:1;visibility:visible;transform:none}
+.totop:hover{background:var(--teal);color:#fff;border-color:var(--teal)}
+.toast{
+  position:fixed;right:24px;bottom:78px;z-index:210;color:#fff;
+  background:linear-gradient(100deg,var(--teal),#1f9d92);
+  font-size:12.5px;letter-spacing:.04em;padding:10px 16px;
+  opacity:0;visibility:hidden;transform:translateY(8px);transition:.35s var(--ease);
+}
+.toast.show{opacity:1;visibility:visible;transform:none}
+
+/* ================= 响应式 ================= */
+@media (max-width:1000px){
+  .home-grid{grid-template-columns:1fr;gap:40px}
+  .portrait .pic{aspect-ratio:1/1}   /* 圆形需保持正方，窄屏不变 */
+  .about-grid,.contact-grid{grid-template-columns:1fr}
+  .sec-head{grid-template-columns:1fr;gap:18px;align-items:start}
+
+  .dots{display:none}
+}
+@media (max-width:640px){
+  .nav ul{gap:16px;font-size:13px}
+  .nav ul a{padding:12px 2px}
+  .brand{padding:10px 0;white-space:nowrap;flex-shrink:0}
+  .brand em{display:none}
+  .scroll-cue{display:none}
+  .trait{grid-template-columns:64px minmax(0,1fr);gap:14px}
+  .btn{padding:15px 28px;font-size:14px}
+  .idx,.entry-num,.entry-meta{font-size:11px}
+  .foot{font-size:11.5px}
+}
+@media (prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}
+  .bg-video video{display:none}
+  .bg-video{background:url(assets/bg/wallpaper.jpg) center/cover no-repeat}
+}
+
+/* —— 移动端触控与可读性最终覆盖 —— */
+@media (max-width:640px){
+  .sec-head .idx,.panel h3,.motto small{font-size:11px}
+  #copyMail{padding:13px 22px!important;font-size:13.5px!important;margin-left:10px!important}
+  .nav ul a{padding:12px 2px}
+}
+
+/* —— 自定义光标：青点 + 细环（与站点同语言） —— */
+.cur{display:none}
+
+/* —— 鼠标拖尾：细线轨迹 —— */
+.cur-trail{display:none}
+@media (prefers-reduced-motion:reduce){ .cur-trail{display:none!important} }
+@media (hover:hover) and (pointer:fine){
+  .cur{display:block}
+  body,a,button,input,textarea,label,select,summary{cursor:none}
+  .cur{position:fixed;left:0;top:0;z-index:9999;pointer-events:none;
+    opacity:0;transition:opacity .3s var(--ease)}
+  .cur.on{opacity:1}
+  .cur-trail{display:block;position:fixed;inset:0;z-index:9997;pointer-events:none}
+  .cur span{position:absolute;left:0;top:0;display:block;border-radius:50%;will-change:transform}
+  .cur-dot{width:6px;height:6px;background:var(--teal);
+    transition:width .25s var(--ease),height .25s var(--ease),opacity .25s var(--ease),background .25s}
+  .cur .cur-ring{display:flex;align-items:center;justify-content:center;
+    width:26px;height:26px;border:1px solid rgba(20,166,152,.5);background:transparent;
+    transition:width .28s var(--ease),height .28s var(--ease),
+               border-color .28s var(--ease),background .28s var(--ease)}
+  .cur-ring::after{content:"VIEW";font:400 9px/1 var(--mono);letter-spacing:.18em;
+    color:var(--teal-ink);opacity:0;transition:opacity .2s var(--ease)}
+  /* 可点元素：环放大 + 淡青填充 */
+  .cur[data-mode="hot"] .cur-ring{width:46px;height:46px;border-color:var(--teal);background:rgba(20,166,152,.10)}
+  .cur[data-mode="hot"] .cur-dot{width:3px;height:3px}
+  /* 图片：环变成 VIEW 标 */
+  .cur[data-mode="view"] .cur-ring{width:68px;height:68px;border-color:var(--teal);background:rgba(255,255,255,.72)}
+  .cur[data-mode="view"] .cur-ring::after{opacity:1}
+  .cur[data-mode="view"] .cur-dot{opacity:0}
+  /* 游戏舞台：光标环收缩成一颗小黄星，呼应棋盘里的金星方块 */
+  .cur[data-mode="star"] .cur-ring{width:15px;height:15px;border-color:#ffd94a;background:rgba(255,217,74,.18)}
+  .cur[data-mode="star"] .cur-dot{width:4px;height:4px;background:#ffd94a}
+  /* 输入框：竖线 */
+  .cur[data-mode="txt"] .cur-ring{width:2px;height:22px;border-radius:1px;
+    background:var(--teal);border-color:transparent}
+  .cur[data-mode="txt"] .cur-dot{opacity:0}
+  .cur.down .cur-ring{width:16px;height:16px;background:rgba(20,166,152,.22)}
+  /* 灯箱（深色底）下转成亮色 */
+  .lb.on ~ .cur .cur-ring{border-color:rgba(255,255,255,.72);background:rgba(255,255,255,.08)}
+  .lb.on ~ .cur .cur-dot{background:#fff}
+}
+@media (prefers-reduced-motion:reduce){ .cur{display:none!important} }
+
+/* —— 导航小头像：转圆形，与大图拱形呼应 —— */
+.brand img{border-radius:50%;border:1px solid var(--line)}
+
+/* —— 头像装饰：细线环 + 星星挂件 —— */
+.ring-deco{position:absolute;left:-13px;right:-13px;top:-13px;aspect-ratio:1/1;pointer-events:none;
+  transition:filter .45s var(--ease)}
+.ring-deco>svg{width:100%;height:100%;display:block;overflow:visible}
+.rd-track{fill:none;stroke:var(--line);stroke-width:1}
+/* 虚线靠 stroke-dashoffset 沿环流动（而非整环 rotate），渐变因此固定不动 —— 颜色是"流过去"的。
+   dasharray 取周长整除值：r=94 周长 590.62/29 段、r=86 周长 540.35/27 段，闭合处无接缝 */
+.rd-dash{fill:none;stroke:url(#rdGradA);stroke-width:1.5;stroke-dasharray:5.092 15.274;stroke-linecap:round;
+  animation:rdFlow 26s linear infinite;
+  transition:stroke-width .4s var(--ease)}
+.rd-dash2{fill:none;stroke:url(#rdGradB);stroke-opacity:.62;stroke-width:1;stroke-dasharray:2 18.012;stroke-linecap:round;
+  animation:rdFlow2 34s linear infinite}
+.rd-pin circle{fill:url(#rdGradA)}
+@keyframes rdFlow{from{stroke-dashoffset:0}to{stroke-dashoffset:-590.62}}
+@keyframes rdFlow2{from{stroke-dashoffset:0}to{stroke-dashoffset:540.35}}
+.rd-badge{
+  position:absolute;right:-4px;bottom:-4px;width:40px;height:40px;border-radius:50%;
+  background:var(--surface);border:1px solid var(--line);
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 6px 16px -8px rgba(43,26,62,.5);
+  transition:transform .45s var(--ease),border-color .45s var(--ease);
+}
+.rd-badge svg{width:19px;height:19px;display:block}
+.rd-badge svg path{fill:#ffd94a;stroke:var(--teal);stroke-width:.8}
+.portrait:hover .rd-badge{transform:scale(1.14) rotate(-9deg);border-color:var(--teal)}
+.portrait:hover .rd-dash{stroke-width:2.2}
+.portrait:hover .ring-deco{filter:drop-shadow(0 0 8px rgba(197,59,147,.24))}
+@media (prefers-reduced-motion:reduce){ .rd-dash,.rd-dash2{animation:none} }
+
+/* —— 我能帮你做什么：三栏服务卡 —— */
+
+/* —— 打印 / 另存为 PDF：面试官 Ctrl+P 时才是完整一份 —— */
+@media print{
+  .bg-video,.cur,.cur-trail,#bar,.dots,.totop,.toast,.scroll-cue,.play,.lb,header,form{display:none!important}
+  html,body{background:#fff!important;color:#000}
+  section{background:#fff!important;padding:18pt 0;border:0}
+  .rv,.up{opacity:1!important;transform:none!important}
+  .panel,  img{filter:grayscale(.35)!important}
+  a[href^="http"]::after{content:" (" attr(href) ")";font-size:8pt;color:#666}
+  @page{margin:14mm}
+}
+
+/* —— 跳转到主内容：键盘用户第一个 Tab 就能跳过导航 —— */
+.skip{position:absolute;left:16px;top:-60px;z-index:300;padding:12px 20px;
+  background:var(--ink);color:#fff;font:400 12px/1 var(--mono);letter-spacing:.1em;
+  text-decoration:none;transition:top .25s var(--ease)}
+.skip:focus{top:16px}
+.dots a:focus-visible span{opacity:1}
+
+
+/* —— 小初音：全身 Q 版陪伴角色，会说话、会跑，和整页联动 —— */
+.miku{position:fixed;left:22px;bottom:20px;z-index:106;display:flex;align-items:flex-end;gap:7px;
+  font-family:var(--mono);pointer-events:none;
+  transition:transform .62s cubic-bezier(.34,1.28,.5,1)}
+.miku-stage{position:relative;display:block;cursor:pointer;pointer-events:auto;
+  -webkit-tap-highlight-color:transparent;border-radius:14px}
+.miku-stage:focus-visible{outline:2px solid var(--teal-ink);outline-offset:5px}
+.miku-body{display:block;width:68px;height:98px;
+  transform-box:fill-box;transform-origin:50% 96%;
+  filter:drop-shadow(0 6px 10px rgba(43,26,62,.14))}
+/* 气泡按内容撑开、从左下角向右长：之前 left:50% 的居中写法会被 68px 宽的
+   角色容器挤成一条竖排窄条，字几乎没法读 */
+.miku-bub{position:absolute;left:0;bottom:calc(100% + 6px);
+  transform:translateY(6px);width:max-content;
+  max-width:min(240px,62vw);padding:8px 13px;
+  border-radius:13px 13px 13px 3px;background:var(--ink);color:#fff;
+  font-size:11.5px;line-height:1.55;letter-spacing:.03em;
+  opacity:0;visibility:hidden;pointer-events:none;
+  transition:opacity .3s var(--ease),transform .3s var(--ease),visibility .3s}
+.miku-bub.on{opacity:1;visibility:visible;transform:translateY(0)}
+.miku-chip{display:flex;flex-direction:column;gap:1px;padding:6px 10px;margin-bottom:16px;
+  border:1px solid var(--line);border-radius:11px;background:rgba(255,255,255,.92);
+  backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);line-height:1.3}
+.miku-time{font-size:12.5px;color:var(--ink);letter-spacing:.06em;font-variant-numeric:tabular-nums}
+.miku-mood{font-size:9.5px;color:var(--mute);letter-spacing:.14em}
+
+/* 四种心情：眼睛 / 嘴 / 手臂 / 腮红按 data-lv 切换 */
+.mf-eye,.mf-mouth,.mf-arm{display:none}
+.miku[data-lv="0"] .mf-eye.open,.miku[data-lv="1"] .mf-eye.open{display:block}
+.miku[data-lv="2"] .mf-eye.happy{display:block}
+.miku[data-lv="3"] .mf-eye.star{display:block}
+.miku[data-lv="0"] .mf-mouth.flat{display:block}
+.miku[data-lv="1"] .mf-mouth.smile,.miku[data-lv="2"] .mf-mouth.smile{display:block}
+.miku[data-lv="3"] .mf-mouth.grin{display:block}
+.miku .mf-arm.down{display:block}
+.miku[data-lv="3"] .mf-arm.down{display:none}
+.miku[data-lv="3"] .mf-arm.up{display:block}
+.mf-blush{opacity:0;transition:opacity .5s var(--ease)}
+.miku[data-lv="2"] .mf-blush{opacity:.55}
+.miku[data-lv="3"] .mf-blush{opacity:.9}
+.mf-pupil{transition:transform .12s linear}
+
+@keyframes mikuBob{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+@keyframes mikuNod{0%{transform:translateY(0) rotate(0deg)}
+  28%{transform:translateY(-2px) rotate(-2.4deg)}
+  62%{transform:translateY(0) rotate(2.4deg)}
+  100%{transform:translateY(0) rotate(0deg)}}
+@keyframes mikuLeap{0%{transform:translateY(0) scaleY(1)}
+  18%{transform:translateY(-11px) scaleY(1.1) scaleX(.94)}
+  46%{transform:translateY(3px) scaleY(.9) scaleX(1.06)}
+  72%{transform:translateY(-4px) scaleY(1.04)}
+  100%{transform:translateY(0) scaleY(1)}}
+@keyframes tailSway{0%,100%{transform:rotate(0deg)}50%{transform:rotate(4.5deg)}}
+@keyframes noteUp{0%{opacity:0;transform:translate(0,0) scale(.5)}
+  22%{opacity:1}68%{opacity:1}100%{opacity:0;transform:translate(-6px,-17px) scale(1.1)}}
+.miku[data-lv="1"] .mf-tail-l{animation:tailSway 2.8s var(--ease) infinite;transform-box:fill-box;transform-origin:60% 14%}
+.miku[data-lv="1"] .mf-tail-r{animation:tailSway 2.8s var(--ease) infinite reverse;transform-box:fill-box;transform-origin:40% 14%}
+.miku[data-lv="2"] .miku-body{animation:mikuBob 1.7s var(--ease) infinite}
+.miku[data-lv="3"] .miku-body{animation:mikuBob .95s var(--ease) infinite}
+.miku[data-act="talk"] .miku-body{animation:mikuNod .52s var(--ease)}
+.miku[data-act="leap"] .miku-body{animation:mikuLeap .74s var(--ease)}
+.mf-note{opacity:0}
+.miku[data-lv="3"] .mf-note{animation:noteUp 2s var(--ease) infinite;transform-box:fill-box;transform-origin:50% 50%}
+.miku[data-lv="3"] .mf-note.n2{animation-delay:.7s}
+.miku[data-lv="3"] .mf-note.n3{animation-delay:1.4s}
+
+@media (prefers-reduced-motion:reduce){
+  .miku{transition:none}
+  .miku-body,.mf-tail-l,.mf-tail-r,.mf-note{animation:none!important}
+}
+@media (max-width:640px){
+  .miku{left:12px;bottom:12px;gap:6px}
+  .miku-body{width:54px;height:78px}
+  .miku-chip{padding:5px 8px;margin-bottom:11px}
+  .miku-time{font-size:11.5px}
+  .miku-mood{font-size:9px;letter-spacing:.1em}
+  .miku-bub{font-size:11px;padding:7px 11px;max-width:min(210px,72vw)}
+}
+</style>
+</head>
+<body data-page-node-id="nD6NFT5LpJuMqrUzk3xWhj">
+<a class="skip" href="#main">跳到主要内容</a>
+
+<!-- 全站背景视频：桌面壁纸缓推循环 -->
+<div class="bg-video" aria-hidden="true">
+  <!-- 视频源写成 data-src，由 JS 判定后再加载：窄屏/省流量/慢网/减少动效 一律不下载（省下 4.6MB） -->
+  <video muted loop playsinline preload="none" poster="assets/bg/wallpaper.jpg" data-src="assets/bg/wallpaper-bg.mp4"></video>
+</div>
+
+<div id="bar" data-page-node-id="fxr8URCAZ06Ef5YMFJ6E7w"></div>
+
+<!-- ============ 导航 ============ -->
+<header id="hd" data-page-node-id="D2HjzeRMjfvcLAtDfUkAQC">
+  <div class="wrap nav" data-page-node-id="yKFmJst8CNUc4IN8iendE9">
+    <a href="#home" class="brand" data-page-node-id="Aeqm9WGNWsXETCuLMbm5RA">
+      <img src="assets/img/avatar.jpg" alt="万晨的头像" width="34" height="34" data-page-node-id="jIZPMIuSRAsQORtMhQi1zS" />
+      <span data-page-node-id="KPC6pKKV0vigw5YoW8LENr"><span data-bind="name" data-page-node-id="Uabsd1l6odPYfkuZawMs1i">万晨</span><em data-bind="nameEn" data-page-node-id="EqMvJE1FpC97dGOXV51GCe">WAN CHEN</em></span>
+    </a>
+    <nav data-page-node-id="BKRTfmEja2wo9d40aPCYoI">
+      <ul data-page-node-id="yjfygXy0quraSb3tNrMgTY">
+        <li data-page-node-id="ZvUnBcMW6IisbQBoH3VC1b"><a href="#about" data-page-node-id="02rCQiRUX19qsdk7rq2Y8p">关于我</a></li>
+        <li data-page-node-id="pH6ZLSnsJJntCX6C7YPD6b"><a href="works.html#works" data-page-node-id="ZGc3ljz0GQeG49Zx4FbMm7">作品 / 爱好</a></li>
+        <li data-page-node-id="G9hJVyAc6EsRYT2DbHTs8j"><a href="works.html#gallery" data-page-node-id="ys2cKxa3KUEptWXQKpiXYc">照片墙</a></li>
+        <li data-page-node-id="nXX1Di9quwjQ0kwgPHyP2C"><a href="#contact" data-page-node-id="B5hS8NYxupFhDqbmb0NAzu">联系方式</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<div class="dots" data-page-node-id="cZF2OLm5pvkEq0Yfdd2H8r">
+  <a href="#home" data-label="首页" data-page-node-id="PH6I3aclgMFXXWWIVgG04B"><span data-page-node-id="0hoI0ZqNMNTkEshR99CouS">首页</span></a>
+  <a href="#about" data-label="关于" data-page-node-id="UCsSqNDB89pvWQmctrvLC4"><span data-page-node-id="AsAT8FjDrgBEpXrnVACFTK">关于</span></a>
+  <a href="#works" data-label="作品" data-page-node-id="D2eI1Tx1keQPemjC8754z0"><span data-page-node-id="IYocvc6ZxuAu0xWqGLwxDA">作品</span></a>
+  <a href="works.html#gallery" data-label="照片" data-page-node-id="i7DAK4ytqw8Dc602B3pFVq"><span data-page-node-id="eg6Et9VJw8smtVqXvJq1xh">照片</span></a>
+  <a href="#contact" data-label="联系" data-page-node-id="4kSA1w8gyXbWuwoHMsdxrA"><span data-page-node-id="eZ80kWJc0WT0P0anFA2r1D">联系</span></a>
+</div>
+
+<!-- ============ 1. 首屏 ============ -->
+<main>
+<section id="home" data-page-node-id="2RCY6ODyd79h8JEhM0GQEY">
+  <div class="wrap home-grid" data-page-node-id="T89GlwTi1D7Tlc0OqxX7hI">
+    <div data-page-node-id="CJovoi1REqbxW03JmhCVdC">
+      <div class="kicker" data-page-node-id="k958FjmmjH7oChldtXCjyN"><i data-page-node-id="mYC0r1YunfA6PZrBF2ykQu"></i><span data-bind="role" data-page-node-id="2FVOwtDPJRtFycttdiz6HM">电子商务运营 / 页面设计</span></div>
+      <h1 data-page-node-id="Sg9Svr6n4el78tYCs2hYsW"><span class="nm glitch" data-text="万晨" data-bind="name" data-page-node-id="V3XpiSF0x77IRfxvdsAnwy">万晨</span><span class="sub" data-bind="nameEn" data-page-node-id="59TzAH5UKi9vWZY7LhPefa">WAN CHEN — 个人主页</span></h1>
+      <p class="lede">电子商务运营专业在读，从选品定位、商品文案到详情页与落地页，<b>一整条链路自己跑通</b>。课余写页面、拍胶片、收集黑胶，多数周末在城市里骑行。</p>
+      <div id="tagRow" data-page-node-id="OBmfQsolhQj27DXBRIFdNt"></div>
+      <div class="btns" data-page-node-id="B8KZXTOW9Pi8xE2jvDi4wN">
+        <a href="works.html" class="btn btn-fill" data-page-node-id="vtHApAoqIrPWngtbJ1qvqs">看看作品 <span class="ar">↓</span></a>
+        <a href="#contact" class="btn btn-line" data-page-node-id="XKrFFEFZX5XWlvOwXDErnQ">联系我 <span class="ar">→</span></a>
+      </div>
+    </div>
+    <figure class="portrait" data-page-node-id="LhEZOOmEGkf00xnMa9433t">
+      <div class="pic" data-page-node-id="cDW1ATGiXCUuMkFPTXxQnk"><img src="assets/img/avatar.jpg" alt="万晨的个人肖像" width="960" height="960" loading="lazy" decoding="async" data-page-node-id="JcRjQRFeYABH2gXyZ3gKmt" /></div>
+            <div class="ring-deco" aria-hidden="true">
+        <svg viewBox="0 0 200 200">
+          <defs>
+            <linearGradient id="rdGradA" x1="14" y1="8" x2="186" y2="192" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#14a698"/>
+              <stop offset=".35" stop-color="#c53b93"/>
+              <stop offset=".70" stop-color="#ffd94a"/>
+              <stop offset="1" stop-color="#14a698"/>
+            </linearGradient>
+            <linearGradient id="rdGradB" x1="192" y1="16" x2="8" y2="184" gradientUnits="userSpaceOnUse">
+              <stop offset="0" stop-color="#ffd94a"/>
+              <stop offset=".5" stop-color="#c53b93"/>
+              <stop offset="1" stop-color="#14a698"/>
+            </linearGradient>
+          </defs>
+          <circle class="rd-track" cx="100" cy="100" r="94"/>
+          <circle class="rd-dash"  cx="100" cy="100" r="94"/>
+          <circle class="rd-dash2" cx="100" cy="100" r="86"/>
+          <g class="rd-pin">
+            <circle cx="100" cy="6"   r="2.6"/>
+            <circle cx="194" cy="100" r="2.6"/>
+            <circle cx="100" cy="194" r="2.6"/>
+            <circle cx="6"   cy="100" r="2.6"/>
+          </g>
+        </svg>
+        <span class="rd-badge"><svg viewBox="0 0 40 40"><path d="M20 4.2l4.6 12 12.6.7-9.9 7.8 3.4 12.2L20 29.9 9.3 36.9l3.4-12.2-9.9-7.8 12.6-.7z"/></svg></span>
+      </div>
+      <figcaption class="badge" data-page-node-id="XwrrMdXoN9ffhJBGBcppDE">PORTRAIT — SKETCH</figcaption>
+    </figure>
+  </div>
+  <div class="scroll-cue" data-page-node-id="NiPk4Sro6E0Q8u4KVFGNBf"><span data-page-node-id="r84eCPTcuv741gFfEDSQgb">SCROLL</span><i data-page-node-id="4vLRAERJoqsDSrMOSOWIla"></i></div>
+</section>
+
+<!-- ============ 2. 关于我 ============ -->
+<section id="about" data-page-node-id="krgAhQc4fpae9JuXD4OCrU">
+  <div class="wrap" data-page-node-id="bwFCqFnRmkbkEeDMpAJJko">
+    <div class="sec-head rv" data-page-node-id="vMBktE9fLlwLH6X2WnATxI">
+      <div>
+        <span class="idx" data-page-node-id="9p717zLtHQG7Q6bneylQmS">01 — ABOUT</span>
+        <h2 data-page-node-id="8wGFRtRs81KUEiCH0gFAPJ">关于我</h2>
+      </div>
+      <p data-page-node-id="zH94vfBd5b4KiKnilES3Jn">把页面做简单，把转化做扎实的人。</p>
+    </div>
+
+    <div class="about-grid" data-page-node-id="6zCx4wT7TTi9URW4fuvBEO">
+      <div class="rv" data-page-node-id="ofsJLAJbIoEQXghzjjnbpD">
+        <!-- ← 改这里：个人简介 -->
+        <div class="bio" data-page-node-id="lMe5T1JXhcoXQEeW1Z9sl8">
+          <p data-page-node-id="dGqtY1XMH6cakGUgRYMZcP">我是万晨，<b>成都新华高级技工学校电子商务运营方向</b>在读。课堂上学到的东西，我习惯立刻拿去实操——从选品定位、卖点提炼到主图、详情页与落地页，一条链路自己跑完，也顺手把前端写了。</p>
+          <p data-page-node-id="7BsORbbXjiqJgewUJgwfWF">我偏爱克制的表达：信息层级清楚、转化路径短、页面不喧宾夺主。好的运营页面应该像空气——用户几乎注意不到设计，却顺着手就点下去了。</p>
+        </div>
+        <!-- ← 改这里：座右铭 -->
+        <blockquote class="motto" data-page-node-id="BE78TCEu3aTkQAgPSams3y">
+          <q data-page-node-id="MUepcSFS65RNE83YRfEVT1">把复杂留给自己，<br data-page-node-id="lYJ7X1C1RCZIU6tyPjqrZg"/>把简单交给人。</q>
+          <small data-page-node-id="epqD2ML3HlyIYOIkspKheG">Less, but better.</small>
+        </blockquote>
+      </div>
+
+      <div class="rv" data-page-node-id="AnZ4a7wAwyw2kZIsOiKdxX">
+        <div class="panel">
+          <h3>现在</h3>
+          <div class="trait"><b>学校</b><span>成都新华高级技工学校</span></div>
+          <div class="trait"><b>专业</b><span>电子商务运营方向 · 在读</span></div>
+          <div class="trait"><b>方向</b><span>店铺运营 / 内容文案 / 页面视觉</span></div>
+        </div>
+        <div class="panel" data-page-node-id="6otJXtgvpodRDulRrRqAqD">
+          <h3 data-page-node-id="31NDTeDV22VGNvsFKC1i3r">性格</h3>
+          <!-- ← 改这里：性格 -->
+          <div class="trait" data-page-node-id="dh90EgCWscucWkfIQkkuE2"><b data-page-node-id="yKc1CI6CtSEQHr5egy1DGP">慢热</b><span data-page-node-id="3ysRyH9P1He1erDN6Bs8F0">熟悉之后话很多，一开始多半在听。</span></div>
+          <div class="trait" data-page-node-id="DlKWtzTEc2jjdth3XCv9b8"><b data-page-node-id="DnOqFT4iL8Oi2tEsuaOPmR">细致</b><span data-page-node-id="TbjlmV8vaK5b2c9fXDVEAJ">详情页里一个错别字都不放过。</span></div>
+          <div class="trait" data-page-node-id="kcapdnru0bPFO5KHjCV7Rp"><b data-page-node-id="C9cl6eCCKkVi8GCj7Rnu1K">爱拆解</b><span data-page-node-id="44LJBEhIpMS4gefXB1nE1j">刷同行的页面，比刷短视频还勤。</span></div>
+          <div class="trait" data-page-node-id="jxDI6rwUouDdeHKKb2p0IU"><b data-page-node-id="UxLoWR8rEwBH5Rrfkg3GqK">长期主义</b><span data-page-node-id="UeIEKo5pO5I63qP7Km1Nov">相信一件小事做三年，也有复利。</span></div>
+        </div>
+        <div class="panel" data-page-node-id="glPA6IOJWQjM4T3uwOaumi">
+          <h3 data-page-node-id="ONSzA1CWjoTxvvuI4bPH7z">兴趣标签</h3>
+          <div id="interestTags" data-page-node-id="SND44rRwzKvsJ2uTbF4TEn"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 3. 作品 / 照片（完整内容已移至 works.html） ============ -->
+<!-- ============ 3. 我能帮你做什么 ============ -->
+<section id="works">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <div>
+        <span class="idx">02 — WORKS &amp; GALLERY</span>
+        <h2>作品 / 照片</h2>
+      </div>
+      <p>完整的作品清单与照片存档已经搬到独立页面，点进去慢慢看。</p>
+    </div>
+    <div class="entry-grid">
+      <a class="entry rv" href="works.html#works">
+        <span class="entry-num">01</span>
+        <span class="entry-title">作品与项目</span>
+        <span class="entry-meta">6 项 · 运营 / 视觉 / 奖项</span>
+        <span class="entry-go">查看全部 <span class="ar">→</span></span>
+      </a>
+      <a class="entry rv" href="works.html#gallery">
+        <span class="entry-num">02</span>
+        <span class="entry-title">照片墙</span>
+        <span class="entry-meta">9 张 · 日常碎片</span>
+        <span class="entry-go">查看全部 <span class="ar">→</span></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 5. 联系方式 ============ -->
+<section id="contact" data-page-node-id="YFGBWBCOJm9CyIJXzpFxQt">
+  <div class="wrap" data-page-node-id="3tFqiHYvJbEBooW6HrVjO9">
+    <div class="sec-head rv" data-page-node-id="Fn4AJQxD4u1Nl2fvKp0mjz">
+      <div>
+        <span class="idx" data-page-node-id="WH8sYVMV4bdjmPi66Xjvso">03 — CONTACT</span>
+        <h2 data-page-node-id="jF29RsCrl6X5W0lPqTOzEJ">联系方式</h2>
+      </div>
+      <p data-page-node-id="dszHgxfca2edXPyNRWGTq6">项目合作、技术交流，或者单纯想聊聊运营和日常，都欢迎写信给我。</p>
+    </div>
+
+    <div class="contact-grid" data-page-node-id="jL8Wvr6VhT2HHERxU5MwBu">
+      <div class="rv" data-page-node-id="vZRmE8etlmkcQqTS3pOJTk">
+        <a class="mailto-big" data-bind="email" href="mailto:hello@wanchen.design" data-page-node-id="q8zE2nc4AuWUhDgBgzo9JS">hello@wanchen.design</a>
+        <button type="button" class="btn btn-line" id="copyMail" style="padding:7px 16px;font-size:12.5px;margin-left:14px;vertical-align:middle">复制邮箱</button>
+        <ul id="socialList" data-page-node-id="NgsMJB8yrcA2RCXEia4YXi"></ul>
+      </div>
+
+      <form id="msgForm" class="rv" data-page-node-id="PivBATLJOsGn8T67w57eAv">
+        <h3 data-page-node-id="ERA4jQBooXsOVSBhZlEDtO">给我留言</h3>
+        <p class="hint" data-page-node-id="BwC7G52X2r4bbJg6NXfFki">填写后点提交，会打开你的邮件客户端并自动填好内容。</p>
+        <div class="field" data-page-node-id="vRBAtxGHqGqHtgRuWtHdEj">
+          <label for="f-name" data-page-node-id="BlQRPvmgYio51RB8LPCnC6">你的称呼</label>
+          <input id="f-name" type="text" placeholder="怎么称呼你？" required data-page-node-id="zppDVIgcigEggE7uvHRybY" />
+        </div>
+        <div class="field" data-page-node-id="zKqaPXLhvTXoPoSya1GEuf">
+          <label for="f-mail" data-page-node-id="jKEDqyGaFon6Ly97Hb8pdp">你的邮箱</label>
+          <input id="f-mail" type="email" placeholder="name@example.com" data-page-node-id="4e3y03YUuCva9mV4AeZ15e" />
+        </div>
+        <div class="field" data-page-node-id="Q6dQGpXeeI17lwtiEOhCzH">
+          <label for="f-msg" data-page-node-id="BtU9vTHMCRzdZwg6HnCNkx">留言内容</label>
+          <textarea id="f-msg" placeholder="想说点什么……" required></textarea>
+        </div>
+        <button type="submit" data-page-node-id="PR3y48TdPZAlCDR5ZY5czn">发送留言 <span class="ar">→</span></button>
+        <div id="formTip" data-page-node-id="DlNFSEbqIzHHp33YkSfdxP"></div>
+      </form>
+    </div>
+
+    <footer data-page-node-id="lWaoT9C1fddyujxaaJduBL">
+      <div class="foot" data-page-node-id="hwUVsZ0hi2jp2Z2pdUi9VK">
+        <span data-page-node-id="3iGX2kOHl3zR1SCvw0BdiC">© 2026 <span data-bind="name" data-page-node-id="AXrIjeHLG70UrflCeAWPlD">万晨</span> · 用 AIGC 生成的个人主页</span>
+        <span data-page-node-id="sziTXbCDje4Cb2e7oRg9po">页面图片由 AI 生成 · HTML / CSS 单文件</span>
+      </div>
+    </footer>
+  </div>
+</section>
+</main>
+
+
+<!-- 小初音：全身 Q 版陪伴角色，会说话、会跑，和整页联动 -->
+<div class="miku" id="miku" data-lv="0" data-act="">
+  <div class="miku-stage" role="button" tabindex="0" aria-label="小初音，本站陪伴计时。点一下和她说话">
+    <div class="miku-bub" id="mikuBub" aria-hidden="true"></div>
+    <svg class="miku-body" viewBox="0 0 72 104" aria-hidden="true">
+      <ellipse cx="36" cy="100.4" rx="16.5" ry="2.6" fill="#2b1a3e" opacity=".1"/>
+      <g fill="#2fb9b0">
+        <path class="mf-tail-l" d="M17 21C8 26 4.5 40 6.5 53C8 62 11 70 15 72C18.5 73 20 69.5 19 64C17 54 17 36 20.5 24Z"/>
+        <path class="mf-tail-r" d="M55 21C64 26 67.5 40 65.5 53C64 62 61 70 57 72C53.5 73 52 69.5 53 64C55 54 55 36 51.5 24Z"/>
+      </g>
+      <rect x="27.5" y="51" width="17" height="27" rx="6" fill="#fdfdfe" stroke="#d7dde8" stroke-width="1"/>
+      <path d="M28.6 54.2l7.4 6 7.4-6" fill="none" stroke="#bccbd9" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M36 60.4l-2.3 1.7 1 4.6 1.3-3.4 1.3 3.4 1-4.6z" fill="#c53b93"/>
+      <path d="M26.2 75.5h19.6l2.8 12.5H23.4z" fill="#2c3352"/>
+      <g stroke="#4a5680" stroke-width="1.1" stroke-linecap="round">
+        <path d="M30.4 76.2l-1.1 11.6"/><path d="M36 76.2v11.8"/><path d="M41.6 76.2l1.1 11.6"/>
+      </g>
+      <g fill="#2c3352">
+        <rect x="29.6" y="86.5" width="5.4" height="9.6" rx="2.6"/>
+        <rect x="37" y="86.5" width="5.4" height="9.6" rx="2.6"/>
+      </g>
+      <g fill="#3b2b52">
+        <rect x="28.9" y="94.6" width="6.8" height="4.6" rx="2.2"/>
+        <rect x="36.3" y="94.6" width="6.8" height="4.6" rx="2.2"/>
+      </g>
+      <ellipse cx="36" cy="34" rx="22" ry="22.5" fill="#39c5bb"/>
+      <circle cx="18" cy="22.5" r="3.2" fill="#22a89f"/><circle cx="54" cy="22.5" r="3.2" fill="#22a89f"/>
+      <g class="mf-arm down" fill="#ffe9e6" stroke="#ecc9c5" stroke-width=".8">
+        <path d="M28.8 56.8c-3.8 3.4-5.8 9.6-5.1 15.2.3 2.4 2.1 3 3.2 1.1 1.6-2.9 2-11 1.9-16.3z"/>
+        <path d="M43.2 56.8c3.8 3.4 5.8 9.6 5.1 15.2-.3 2.4-2.1 3-3.2 1.1-1.6-2.9-2-11-1.9-16.3z"/>
+      </g>
+      <g class="mf-arm up" fill="#ffe9e6" stroke="#ecc9c5" stroke-width=".8">
+        <path d="M29 57.8C25 55.8 20.6 53.4 17.8 50C16.7 48.7 17.9 47 19.5 47.7C22.1 48.8 25.9 52.7 29 56.4Z"/>
+        <path d="M43 57.8C47 55.8 51.4 53.4 54.2 50C55.3 48.7 54.1 47 52.5 47.7C49.9 48.8 46.1 52.7 43 56.4Z"/>
+      </g>
+      <ellipse cx="36" cy="38" rx="17.5" ry="16.5" fill="#ffe9e6"/>
+      <path d="M18.5 36C18.5 22 26.5 16.5 36 16.5s17.5 5.5 17.5 19.5L48 32 44 37.8 39.5 32 36 38.6 32 32 27.5 37.8 23.5 32 18.5 36Z" fill="#3ad0c6"/>
+      <g class="mf-blush" fill="#ff9bb8">
+        <ellipse cx="22.6" cy="45.4" rx="4.6" ry="2.7"/><ellipse cx="49.4" cy="45.4" rx="4.6" ry="2.7"/>
+      </g>
+      <g class="mf-pupil">
+        <g class="mf-eye open" fill="#2b1a3e">
+          <ellipse cx="28" cy="41" rx="3.3" ry="4.6"/><ellipse cx="44" cy="41" rx="3.3" ry="4.6"/>
+          <circle cx="26.9" cy="39.4" r="1.3" fill="#fff"/><circle cx="42.9" cy="39.4" r="1.3" fill="#fff"/>
+          <circle cx="29.2" cy="43.3" r=".7" fill="#fff" opacity=".85"/><circle cx="45.2" cy="43.3" r=".7" fill="#fff" opacity=".85"/>
+        </g>
+        <g class="mf-eye happy" fill="none" stroke="#2b1a3e" stroke-width="2.2" stroke-linecap="round">
+          <path d="M24.6 42.4q3.4-4.4 6.8 0"/><path d="M40.6 42.4q3.4-4.4 6.8 0"/>
+        </g>
+        <g class="mf-eye star" fill="#0a6660">
+          <path d="M28 33.6l1.3 2.7 3 .46-2.2 2.1.5 3-2.6-1.4-2.6 1.4.5-3-2.2-2.1 3-.46z"/>
+          <path d="M44 33.6l1.3 2.7 3 .46-2.2 2.1.5 3-2.6-1.4-2.6 1.4.5-3-2.2-2.1 3-.46z"/>
+        </g>
+      </g>
+      <path class="mf-mouth flat" d="M33.8 48h4.4" fill="none" stroke="#c53b93" stroke-width="1.6" stroke-linecap="round"/>
+      <path class="mf-mouth smile" d="M32.6 46.8q3.4 3.6 6.8 0" fill="none" stroke="#c53b93" stroke-width="1.6" stroke-linecap="round"/>
+      <path class="mf-mouth grin" d="M31.2 45.6q4.8 7 9.6 0q-4.8 2.2-9.6 0z" fill="#c53b93"/>
+      <g fill="#ffd94a">
+        <circle class="mf-note" cx="5.6" cy="42" r="3.4"/><circle class="mf-note n2" cx="66" cy="40" r="2.8"/><circle class="mf-note n3" cx="67.5" cy="54" r="2.3"/>
+      </g>
+    </svg>
+  </div>
+  <div class="miku-chip" aria-hidden="true">
+    <span class="miku-time" id="mikuTime">00:00</span>
+    <span class="miku-mood" id="mikuMood">刚来</span>
+  </div>
+</div>
+
+<button class="totop" id="toTop" aria-label="回到顶部">↑</button>
+<div class="toast" id="toast"></div>
+
+<script>
+/* ==================== 配置区：改这里 ==================== */
+const CONFIG = {
+  name:   "万晨",
+  nameEn: "WAN CHEN",
+  role:   "电子商务运营 / 页面设计",
+  email:  "hello@wanchen.design",
+  tags:   ["电子商务运营", "店铺视觉", "内容文案", "数据分析", "页面设计", "胶片摄影", "城市骑行"],
+  socials: [
+    { label: "小红书",   handle: "运营日常", url: "#" },
+    { label: "抖音",     handle: "短视频作品", url: "#" },
+    { label: "GitHub",   handle: "页面代码", url: "#" },
+    { label: "微博",     handle: "@万晨",    url: "#" }
+  ]
+};
+
+/* ================== 配置区结束 ================== */
+
+/* 基础信息绑定 */
+document.querySelectorAll('[data-bind]').forEach(el => {
+  const v = CONFIG[el.dataset.bind];
+  if (v == null) return;
+  el.textContent = v;
+  if (el.tagName === 'A') el.href = 'mailto:' + v;
+  if (el.classList.contains('glitch')) el.dataset.text = v;   // 同步故障重影的文字
+});
+const chips = arr => arr.map(t => `<span>${t}</span>`).join('');
+document.getElementById('tagRow').innerHTML = chips(CONFIG.tags);
+document.getElementById('interestTags').innerHTML = chips(CONFIG.tags);
+
+/* 社交账号 */
+document.getElementById('socialList').innerHTML = CONFIG.socials.map(s =>
+  `<li><a href="${s.url}" target="_blank" rel="noopener">${s.label}<em>${s.handle} ↗</em></a></li>`
+).join('');
+
+
+
+/* 进度条 + 吸顶导航 */
+const hd = document.getElementById('hd'), bar = document.getElementById('bar');
+addEventListener('scroll', () => {
+  const y = scrollY;
+  hd.classList.toggle('solid', y > 40);
+  const max = document.body.scrollHeight - innerHeight;
+  bar.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+}, { passive: true });
+
+/* 进场动画 */
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+}, { threshold: .1, rootMargin: '0px 0px -6% 0px' });
+document.querySelectorAll('.rv').forEach((el, i) => {
+  el.style.transitionDelay = (i % 3) * 80 + 'ms';
+  io.observe(el);
+});
+
+/* 高亮当前板块（导航 + 侧边刻度） */
+const links = [...document.querySelectorAll('.nav ul a')];
+const dotLinks = [...document.querySelectorAll('.dots a')];
+const secs = ['home', 'about', 'works', 'contact'].map(id => document.getElementById(id));
+const spy = new IntersectionObserver(es => {
+  es.forEach(e => {
+    if (!e.isIntersecting) return;
+    const id = '#' + e.target.id;
+    links.forEach(a => a.classList.toggle('on', a.getAttribute('href') === id));
+    dotLinks.forEach(a => a.classList.toggle('on', a.getAttribute('href') === id));
+    /* 同步 aria-current，屏幕阅读器才知道当前在哪一屏 */
+    dotLinks.forEach(a => {
+      if (a.getAttribute('href') === id) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+  });
+}, { threshold: .3 });
+secs.forEach(s => s && spy.observe(s));
+
+
+/* 留言：无后端，拼接 mailto 交给邮件客户端 */
+document.getElementById('msgForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const name = document.getElementById('f-name').value.trim();
+  const mail = document.getElementById('f-mail').value.trim();
+  const msg  = document.getElementById('f-msg').value.trim();
+  const tip  = document.getElementById('formTip');
+  if (!name || !msg) { tip.textContent = '称呼和留言内容不能为空。'; return; }
+  const subject = encodeURIComponent(`来自个人主页的留言 — ${name}`);
+  const body = encodeURIComponent(`${msg}\n\n---\n${name}${mail ? ' · ' + mail : ''}`);
+  tip.textContent = '正在打开你的邮件客户端…';
+  location.href = `mailto:${CONFIG.email}?subject=${subject}&body=${body}`;
+});
+
+/* 轻提示 */
+const toastEl = document.getElementById('toast');
+let toastTimer;
+function toast(msg){
+  toastEl.textContent = msg; toastEl.classList.add('show');
+  clearTimeout(toastTimer); toastTimer = setTimeout(() => toastEl.classList.remove('show'), 1900);
+}
+
+/* 回到顶部 */
+const toTop = document.getElementById('toTop');
+addEventListener('scroll', () => toTop.classList.toggle('show', scrollY > 600), { passive: true });
+toTop.addEventListener('click', () => scrollTo({ top: 0, behavior: 'smooth' }));
+
+/* 邮箱一键复制 */
+const copyBtn = document.getElementById('copyMail');
+if (copyBtn) copyBtn.addEventListener('click', () => {
+  const mail = CONFIG.email;
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(mail).then(() => toast('已复制：' + mail), () => toast(mail));
+  } else toast(mail);
+});
+
+
+/* ============ 背景视频：确保真的动起来 ============ */
+(function(){
+  var v = document.querySelector('.bg-video video');
+  if (!v) return;
+  var box = v.parentElement;
+  v.muted = true;                        /* 只写属性不够，必须设 property 才允许自动播放 */
+  var conn = navigator.connection || navigator.mozConnection || navigator.webkitConnection || {};
+  var narrow = matchMedia('(max-width:820px)').matches;
+  /* 真·省流量场景才彻底不下载视频（慢网 / 开了省流量 / 要求减少动效） */
+  var never = conn.saveData === true
+           || /^(slow-2g|2g)$/.test(conn.effectiveType || '')
+           || matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if (never) { box.classList.add('still'); return; }
+
+  var started = false;
+  function start(){
+    if (started) return;
+    started = true;
+    v.src = v.dataset.src || v.getAttribute('src');   /* 到这一步才真正开始下载 */
+    v.load();
+    kick();
+  }
+  var kick = function(){
+    if (v.readyState === 0 && !started) start();
+    var p = v.play();
+    if (p && p.catch) p.catch(function(){});
+  };
+  /* 视频一旦真的在播，就撤掉静态兜底（哪怕是迟到很久才播起来） */
+  v.addEventListener('playing', function(){ box.classList.remove('still'); });
+  v.addEventListener('loadeddata', kick);
+  v.addEventListener('canplay', kick);
+  v.addEventListener('error', function(){ box.classList.add('still'); });
+
+  if (narrow) {
+    /* 手机 / 窄屏：先给会动的封面，用户碰一下页面再加载视频，不白花流量 */
+    box.classList.add('still');
+    var wake = function(){
+      box.classList.remove('still');
+      start();
+      ['pointerdown','touchstart','keydown'].forEach(function(t){ removeEventListener(t, wake); });
+    };
+    ['pointerdown','touchstart','keydown'].forEach(function(t){
+      addEventListener(t, wake, { passive: true });
+    });
+  } else {
+    start();                                          /* 桌面：立刻加载播放 */
+  }
+  /* 被浏览器自动播放策略拦住时，任何一次交互都再试一次 */
+  var retry = function(){ kick(); };
+  ['pointerdown','pointermove','keydown','touchstart','wheel','scroll'].forEach(function(t){
+    addEventListener(t, retry, { passive: true });
+  });
+  document.addEventListener('visibilitychange', function(){ if (!document.hidden) kick(); });
+  /* 降级超时放宽到 12 秒；降级后仍继续等，视频迟到也会自动切回来 */
+  setTimeout(function(){ if (v.paused || v.readyState < 2) box.classList.add('still'); }, 12000);
+})();
+</script>
+
+<canvas class="cur-trail" id="curTrail" aria-hidden="true"></canvas>
+<div class="cur" id="cur" aria-hidden="true"><span class="cur-ring"></span><span class="cur-dot"></span></div>
+
+<script>
+/* ============ 自定义光标 + 拖尾 ============ */
+(function(){
+  if (!matchMedia('(hover:hover) and (pointer:fine)').matches) return;
+  if (matchMedia('(prefers-reduced-motion:reduce)').matches) return;
+  const cur = document.getElementById('cur');
+  if (!cur) return;
+  const dot  = cur.querySelector('.cur-dot');
+  const ring = cur.querySelector('.cur-ring');
+  const cv   = document.getElementById('curTrail');
+  const ctx  = cv ? cv.getContext('2d') : null;
+
+  let mx = innerWidth / 2, my = innerHeight / 2, rx = mx, ry = my, on = false;
+  let mode = '';
+
+  /* ---- 拖尾画布 ---- */
+  let W = 0, H = 0, dpr = Math.min(devicePixelRatio || 1, 2);
+  const pts = [], LIFE = 620, MAX = 90;
+  function size(){
+    if (!cv) return;
+    W = innerWidth; H = innerHeight;
+    cv.width = W * dpr; cv.height = H * dpr;
+    cv.style.width = W + 'px'; cv.style.height = H + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+  }
+  if (cv) { size(); addEventListener('resize', size); }
+
+  const RGB = { def: '20,166,152', star: '255,217,74', lb: '255,255,255' };
+  const curRGB = () => mode === 'star' ? RGB.star
+    : (document.querySelector('.lb.on') ? RGB.lb : RGB.def);
+
+  addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    if (!on) { on = true; cur.classList.add('on'); rx = mx; ry = my; }
+
+    const hit = e.target.closest('a,button,input,textarea,label,select,[data-cur]');
+    let m = '';
+    if (hit)      m = hit.dataset.cur || (hit.matches('input,textarea') ? 'txt' : 'hot');
+    else if (e.target.closest('.witem-pic,.wall figure,.wall img,.portrait .pic,.pic')) m = 'view';
+    else if (e.target.closest('.stage'))   m = 'star';
+    if (m !== mode) { mode = m; cur.dataset.mode = m; }
+
+    /* 采样：移动超过 2px 才记点，静止时不堆积 */
+    if (ctx) {
+      const last = pts[pts.length - 1];
+      if (!last || (mx - last.x) * (mx - last.x) + (my - last.y) * (my - last.y) > 4.8) {
+        pts.push({ x: mx, y: my, t: performance.now() });
+        if (pts.length > MAX) pts.shift();
+      }
+    }
+  }, { passive: true });
+
+  addEventListener('mouseout', e => { if (!e.relatedTarget) { on = false; cur.classList.remove('on'); } });
+  addEventListener('blur',  () => cur.classList.remove('on'));
+  addEventListener('mousedown', () => cur.classList.add('down'));
+  addEventListener('mouseup',   () => cur.classList.remove('down'));
+
+  (function loop(){
+    /* 光标 */
+    rx += (mx - rx) * .18; ry += (my - ry) * .18;
+    dot.style.transform  = 'translate3d(' + mx + 'px,' + my + 'px,0) translate(-50%,-50%)';
+    ring.style.transform = 'translate3d(' + rx + 'px,' + ry + 'px,0) translate(-50%,-50%)';
+
+    /* 拖尾 */
+    if (ctx) {
+      const now = performance.now(), rgb = curRGB();
+      while (pts.length && now - pts[0].t > LIFE) pts.shift();
+      ctx.clearRect(0, 0, W, H);
+      if (pts.length > 1) {
+        ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        for (let i = 1; i < pts.length; i++) {
+          const a = pts[i - 1], b = pts[i];
+          const k = i / pts.length;                       // 越靠近当前越亮越粗
+          const age = 1 - (now - b.t) / LIFE;             // 越新越不透明
+          const al = Math.max(0, Math.min(1, age)) * .55 * k;
+          if (al <= .004) continue;
+          ctx.beginPath(); ctx.moveTo(a.x, a.y); ctx.lineTo(b.x, b.y);
+          ctx.strokeStyle = 'rgba(' + rgb + ',' + al.toFixed(3) + ')';
+          ctx.lineWidth = .6 + 2.2 * k;
+          ctx.stroke();
+        }
+      }
+    }
+    requestAnimationFrame(loop);
+  })();
+})();
+
+/* —— 小初音：全身陪伴角色，会说话、被点烦了会换地方，和整页联动 —— */
+(() => {
+  const box = document.getElementById('miku');
+  if (!box) return;
+  const svg   = box.querySelector('.miku-body');
+  const stage = box.querySelector('.miku-stage');
+  const bEl   = document.getElementById('mikuBub');
+  const tEl   = document.getElementById('mikuTime');
+  const mEl   = document.getElementById('mikuMood');
+  const pupil = box.querySelector('.mf-pupil');
+  if (!stage || !svg) return;
+
+  const KEY = 'mikuVisit', now = () => Date.now();
+  const IDLE = 30 * 60 * 1000;                      /* 离开超过 30 分钟算新的一次访问 */
+  const RM = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const pick = a => a[Math.floor(Math.random() * a.length)];
+
+  let st = null;
+  try { st = JSON.parse(sessionStorage.getItem(KEY) || 'null'); } catch (e) {}
+  if (!st || !st.start || now() - (st.last || 0) > IDLE) st = { start: now(), last: now() };
+
+  const LV = [
+    { at: 0,   mood: '刚来',    bub: null },
+    { at: 30,  mood: '在看呢',  bub: '陪你 30 秒啦 ♪' },
+    { at: 120, mood: '好开心',  bub: '两分钟了，谢谢你～' },
+    { at: 300, mood: '最喜欢你', bub: '五分钟！今天真开心 ♪' }
+  ];
+  const L = {
+    poke:   ['你还在呀 ♪', '再看看作品？', '谢谢你陪我', '今天也辛苦啦', '♪～', '要不要听听歌', '嘿嘿，被你发现啦', '我在偷偷看你哦', '别点啦，痒痒的', '我陪你一起看'],
+    run:    ['抓不到我～', '换个地方待着！', '嘿嘿，我跑啦', '来追我呀 ♪', '这儿风景也不错'],
+    home:   ['我回来啦', '还是这儿舒服 ♪'],
+    copy:   ['邮箱复制好啦，等你来信 ♪'],
+    send:   ['发出去啦，会很快回你的～'],
+    lb:     ['这张好好看！', '我也想去这里', '哇，好会拍'],
+    bottom: ['到底啦，辛苦了 ♪', '看完了？那我们聊会儿'],
+    back:   ['你回来啦！我还以为你走了', '欢迎回来 ♪'],
+    near:   ['呀，凑这么近…', '嘿嘿，脸要红了'],
+    deep:   ['已经看这么多了，谢谢你 ♪'],
+    nav:    ['带你去那儿 ♪']
+  };
+  const SEC = {
+    home:    ['欢迎光临 ♪'],
+    about:   ['这里讲我的故事哦', '往下看，还有好玩的'],
+    works:   ['这些都是我做的小东西'],
+    gallery: ['照片墙！我最喜欢这里'],
+    contact: ['留个言吧，我会看的 ♪'],
+    play:    ['消消乐？我数着你的连击～']
+  };
+
+  const fmt = s => {
+    s = Math.max(0, Math.floor(s));
+    const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), ss = s % 60;
+    return (h ? h + ':' + String(m).padStart(2, '0') : String(m).padStart(2, '0')) + ':' + String(ss).padStart(2, '0');
+  };
+
+  let bTimer = null, actTimer = null;
+  function say(txt, ms) {
+    bEl.textContent = txt;
+    bEl.classList.add('on');
+    clearTimeout(bTimer);
+    bTimer = setTimeout(() => bEl.classList.remove('on'), ms || 2800);
+  }
+  function act(n, ms) {
+    if (RM) return;
+    box.dataset.act = n;
+    clearTimeout(actTimer);
+    actTimer = setTimeout(() => { box.dataset.act = ''; }, ms);
+  }
+  const last = {};
+  function sayOnce(k, txt, ms, cd) {
+    const t = now();
+    if (last[k] && t - last[k] < (cd || 20000)) return;
+    last[k] = t; say(txt, ms || 2800);
+  }
+
+  /* 计时 + 心情 */
+  let lv = -1;
+  function setLv(n) {
+    if (n === lv) return;
+    const first = lv < 0; lv = n;
+    box.dataset.lv = n;
+    mEl.textContent = LV[n].mood;
+    stage.setAttribute('aria-label', '小初音陪你浏览：已经 ' + fmt((now() - st.start) / 1000) + '，心情「' + LV[n].mood + '」。点一下和她说话');
+    if (!first && LV[n].bub) { act('talk', 560); say(LV[n].bub, 3200); }   /* 刚进页面不弹，免得莫名其妙 */
+    try { st.last = now(); sessionStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {}
+  }
+  function tick() {
+    if (document.hidden) return;
+    const s = (now() - st.start) / 1000;
+    tEl.textContent = fmt(s);
+    let n = 0;
+    for (let i = LV.length - 1; i >= 0; i--) if (s >= LV[i].at) { n = i; break; }
+    setLv(n);
+    try { st.last = now(); sessionStorage.setItem(KEY, JSON.stringify(st)); } catch (e) {}
+  }
+  tick();
+  setInterval(tick, 1000);
+  document.addEventListener('visibilitychange', () => { if (!document.hidden) tick(); });
+
+  /* 站位：左下角是「家」，被点烦了就挑个地方待着 */
+  let spot = 0, away = false;
+  function place(i) {
+    const vw = innerWidth, vh = innerHeight;
+    const w = box.offsetWidth || 150, h = box.offsetHeight || 100;
+    const pad = 14, top = 68;
+    const small = vw < 641;
+    const baseL = small ? 12 : 22, baseT = vh - h - (small ? 12 : 20);
+    const cand = [
+      [baseL, baseT],
+      [vw - w - pad, baseT],
+      [vw - w - pad, top],
+      [Math.round(vw * 0.5 - w / 2), top],
+      [pad, Math.round(top + vh * 0.18)]
+    ];
+    let t = cand[i % cand.length], x = t[0], y = t[1];
+    x = Math.max(pad, Math.min(x, Math.max(pad, vw - w - pad)));
+    y = Math.max(top, Math.min(y, Math.max(top, vh - h - pad)));
+    box.style.transform = 'translate(' + Math.round(x - baseL) + 'px,' + Math.round(y - baseT) + 'px)';
+    spot = i % cand.length;
+    away = spot !== 0;
+  }
+  function jump() { place(1 + Math.floor(Math.random() * 4)); }
+  function goHome() {
+    if (!away) return;
+    act('leap', 740); place(0);
+    setTimeout(() => say(pick(L.home), 2600), 620);
+  }
+  addEventListener('resize', () => place(spot));
+  place(0);
+
+  /* 点一下说话；点满三下她就换个地方待着 */
+  let pokes = 0, homeTimer = null;
+  function poke() {
+    const n = ++pokes;
+    clearTimeout(homeTimer);
+    homeTimer = setTimeout(goHome, 26000);
+    if (n % 3 === 0) {
+      act('talk', 520); say(pick(L.poke), 2300);
+      setTimeout(() => {
+        act('leap', 760); jump();
+        setTimeout(() => say(pick(L.run), 2800), 540);
+      }, 900);
+    } else {
+      act('talk', 560); say(pick(L.poke), 2600);
+    }
+  }
+  stage.addEventListener('click', poke);
+  stage.addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); poke(); }
+  });
+
+  /* 和整页联动：进区块 / 复制邮箱 / 发留言 / 看大图 / 玩小游戏 / 滚到底 / 切回来 */
+  ['home', 'about', 'works', 'gallery', 'contact', 'play'].forEach(id => {
+    const el = document.getElementById(id);
+    if (!el || !SEC[id]) return;
+    new IntersectionObserver(es => {
+      es.forEach(e => {
+        if (e.isIntersecting) { act('talk', 520); sayOnce('sec-' + id, pick(SEC[id]), 3000, 60000); }
+      });
+    }, { threshold: 0.3 }).observe(el);
+  });
+
+  const cm = document.getElementById('copyMail');
+  if (cm) cm.addEventListener('click', () => { act('talk', 520); say(pick(L.copy), 3200); });
+
+  const fm = document.getElementById('msgForm');
+  if (fm) fm.addEventListener('submit', () => { act('leap', 740); say(pick(L.send), 3600); });
+
+  const lb = document.getElementById('lb');
+  if (lb) new MutationObserver(() => {
+    if (lb.classList.contains('on')) { act('talk', 520); sayOnce('lb', pick(L.lb), 2600, 12000); }
+  }).observe(lb, { attributes: true, attributeFilter: ['class'] });
+
+  const res = document.getElementById('pgRes');
+  if (res) new MutationObserver(() => {
+    if (!res.classList.contains('on')) return;
+    const f = document.getElementById('pgFinal');
+    act('leap', 760);
+    say('哇，捉到 ' + (f ? f.textContent : '0') + ' 次，好厉害！', 3200);
+  }).observe(res, { attributes: true, attributeFilter: ['class'] });
+
+  let bottomSaid = 0;
+  addEventListener('scroll', () => {
+    const y = scrollY || pageYOffset;
+    if (y + innerHeight >= document.body.scrollHeight - 60) {
+      if (now() - bottomSaid > 40000) { bottomSaid = now(); say(pick(L.bottom), 3000); }
+    } else if (y > innerHeight * 2) {
+      sayOnce('deep', pick(L.deep), 2800, 120000);
+    }
+  }, { passive: true });
+
+  let hidAt = 0;
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) { hidAt = now(); }
+    else if (hidAt && now() - hidAt > 15000) {
+      hidAt = 0; act('talk', 560); say(pick(L.back), 3000);
+    }
+  });
+
+  /* 鼠标靠近会害羞，眼睛一直跟着你 */
+  let shyAt = 0;
+  addEventListener('mousemove', e => {
+    const r = svg.getBoundingClientRect();
+    const cx = r.left + r.width / 2, cy = r.top + r.height * 0.36;
+    if (pupil) {
+      const dx = Math.max(-1, Math.min(1, (e.clientX - cx) / (innerWidth / 2)));
+      const dy = Math.max(-1, Math.min(1, (e.clientY - cy) / (innerHeight / 2)));
+      pupil.style.transform = 'translate(' + (dx * 1.9).toFixed(2) + 'px,' + (dy * 1.6).toFixed(2) + 'px)';
+    }
+    if (Math.hypot(e.clientX - cx, e.clientY - cy) < 130 && now() - shyAt > 15000) {
+      shyAt = now(); act('talk', 460); say(pick(L.near), 2400);
+    }
+  }, { passive: true });
+})();
+
+</script>
+</body>
+</html>
